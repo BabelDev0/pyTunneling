@@ -9,18 +9,25 @@ EPS0 = 1.4185972717563562e-39; # C^2/(eV*nm)
 PI = 3.14159265358979323846;
 CONST_C = HBAR*HBAR/(2*MASS_E); # eV*nm^2
 
-DB = 2; # barrier width
-DX = 2; # distance between barriers
+DB = 9; # barrier width
+DX = 1; # distance between barriers
 MOD = DB+DX; # period of the potential
-NB = 1; # number of barriers
+NB = 10; # number of barriers
 LM = (DB*NB)+((NB-1)*DX); # last barrier position
+ML = 100; #model length
 
 def rectangular_barier(x):
     if x >= LM:
         return 0
-    return (x%MOD) <= DB
+    return (x%MOD) <= (DB-1)
 
 def main():
+    # draw with _ the rectangular barrier
+    for i in range((-DX), ML):
+        if rectangular_barier(i):
+            print("-", end="")
+        else:
+            print("_", end="")
 
 
 if __name__ == '__main__':
