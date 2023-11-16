@@ -15,15 +15,12 @@ MOD = DB+DX; # period of the potential
 NB = 1; # number of barriers
 LM = (DB*NB)+((NB-1)*DX); # last barrier position
 
-
 def rectangular_barier(x):
     if x >= LM:
         return 0
     return (x%MOD) <= DB
 
 def main():
-    print("Hello World!")
-    print(Prova())
 
 
 if __name__ == '__main__':
